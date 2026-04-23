@@ -1,0 +1,179 @@
+// ============================================================
+// SECTIONS — Pricing
+// ============================================================
+@use '../abstracts/variables'as v;
+@use '../abstracts/mixins'as m;
+@use '../abstracts/functions'as f;
+
+.pricing {
+    &__header {
+        text-align   : center;
+        // Fluido: 1.5rem (320px) → 3rem (1280px)
+        margin-bottom: f.fluid(24, 48, 320, 1280, rem);
+
+        h2 {
+            font-size     : f.fluid(28, 48);
+            letter-spacing: -0.02em;
+            margin-bottom : v.$space-4;
+        }
+
+        p {
+            font-size: v.$font-size-lg;
+            color    : v.$color-text-muted;
+        }
+    }
+
+    &__grid {
+        display              : grid;
+        gap                  : v.$space-6;
+        // minmax(0,1fr) fuerza a la track a respetar el ancho del contenedor
+        grid-template-columns: minmax(0, 1fr);
+
+        @include m.respond-to(lg) {
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+            align-items          : start;
+        }
+    }
+
+    &__card {
+        // Padding fluido: 1.25rem en móvil → 2.5rem en desktop
+        // padding      : clamp(1.25rem, 2.083vw + 0.833rem, 2.5rem);
+        padding      : f.fluid(16, 32, 320, 1280, rem);
+        background   : v.$gradient-card;
+        border       : 1px solid rgba(v.$color-accent, 0.3);
+        border-radius: v.$border-radius-2xl;
+        position     : relative;
+        overflow     : hidden;
+        min-width    : 0;
+
+        &--featured {
+            border-color: rgba(v.$color-accent, 0.5);
+            box-shadow  : v.$shadow-lg, v.$shadow-glow;
+        }
+    }
+
+    &__label {
+        font-size     : v.$font-size-xs;
+        font-weight   : v.$font-weight-bold;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color         : v.$color-accent;
+        margin-bottom : v.$space-4;
+    }
+
+    &__price {
+        font-size     : f.fluid(48, 72);
+        font-weight   : v.$font-weight-extrabold;
+        line-height   : 1;
+        letter-spacing: -0.04em;
+        margin-bottom : v.$space-2;
+
+        background             : v.$gradient-accent;
+        background-clip        : text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    &__period {
+        font-size    : v.$font-size-sm;
+        color        : v.$color-text-subtle;
+        margin-bottom: 1.9rem;
+    }
+
+    &__features {
+        display       : flex;
+        flex-direction: column;
+        gap           : v.$space-3;
+        margin-bottom : v.$space-8;
+    }
+
+    &__feature {
+        display    : flex;
+        align-items: flex-start;
+        gap        : v.$space-3;
+        font-size  : v.$font-size-sm;
+        color      : v.$color-text;
+
+        svg {
+            color      : v.$color-success;
+            flex-shrink: 0;
+            margin-top : 2px;
+        }
+    }
+
+    &__actions {
+        display  : flex;
+        flex-wrap: wrap;
+        gap      : 0.75rem;
+
+        // En móvil (< md) los botones ocupan todo el ancho
+        @include m.respond-below(md) {
+            flex-direction: column;
+
+            .btn {
+                width          : 100%;
+                justify-content: center;
+            }
+        }
+    }
+
+    &__extras {
+        // Fluido: 1rem (320px) → 2rem (1280px)
+        padding      : f.fluid(16, 32, 320, 1280, rem);
+        background   : v.$gradient-card;
+        border       : 1px solid v.$color-border;
+        border-radius: v.$border-radius-2xl;
+    }
+
+    &__extras-title {
+        font-size     : v.$font-size-sm;
+        font-weight   : v.$font-weight-bold;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color         : v.$color-text-muted;
+        // Fluido: 0.75rem (320px) → 1.5rem (1280px)
+        margin-bottom : f.fluid(12, 24, 320, 1280, rem);
+    }
+
+    &__extra-item {
+        display      : flex;
+        align-items  : flex-start;
+        gap          : v.$space-3;
+        padding-block: v.$space-3;
+        border-bottom: 1px solid rgba(v.$color-border, 0.5);
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    &__extra-price {
+        font-size  : v.$font-size-sm;
+        font-weight: v.$font-weight-bold;
+        color      : v.$color-accent;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    &__extra-desc {
+        font-size  : v.$font-size-sm;
+        color      : v.$color-text-muted;
+        line-height: v.$line-height-normal;
+    }
+
+    &__custom {
+        // Fluido: 1rem (320px) → 2rem (1280px)
+        margin-top   : f.fluid(16, 32, 320, 1280, rem);
+        padding      : f.fluid(16, 24, 320, 1280, rem);
+        background   : rgba(v.$color-accent, 0.05);
+        border       : 1px dashed rgba(v.$color-accent, 0.25);
+        border-radius: v.$border-radius-xl;
+        text-align   : center;
+
+        p {
+            font-size    : v.$font-size-sm;
+            color        : v.$color-text-muted;
+            margin-bottom: v.$space-4;
+        }
+    }
+}

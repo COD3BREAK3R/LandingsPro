@@ -1,0 +1,31 @@
+// ============================================================
+// FUNCIONES SASS
+// ============================================================
+@use 'variables'as v;
+@use 'sass:math';
+
+// Convierte px a rem
+@function rem($px) {
+    @return math.div($px, 16) * 1rem;
+}
+
+// Convierte px a em
+@function em($px, $base: 16) {
+    @return math.div($px, $base) * 1em;
+}
+
+// Clamp fluido — $unit: px (tipografía) | rem (espaciado)
+// Ejemplo: fluid(32, 64, 320, 1280, rem) → clamp(2rem, 3.333vw + 1.333rem, 4rem)
+@function fluid($min-size, $max-size, $min-vw: 480, $max-vw: 1280, $unit: px) {
+    $slope    : math.div(($max-size - $min-size), ($max-vw - $min-vw));
+    $intercept: $min-size - $slope * $min-vw;
+
+    @if $unit==rem {
+        $min-rem      : math.div($min-size, 16) * 1rem;
+        $max-rem      : math.div($max-size, 16) * 1rem;
+        $intercept-rem: math.div($intercept, 16) * 1rem;
+        @return clamp(#{$min-rem}, #{$slope * 100}vw + #{$intercept-rem}, #{$max-rem});
+    }
+
+    @return clamp(#{$min-size}px, #{$slope * 100}vw + #{$intercept}px, #{$max-size}px);
+}

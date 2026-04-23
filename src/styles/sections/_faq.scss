@@ -1,0 +1,149 @@
+// ============================================================
+// SECTIONS — FAQ
+// ============================================================
+@use '../abstracts/variables'as v;
+@use '../abstracts/mixins'as m;
+@use '../abstracts/functions'as f;
+
+.faq {
+    &__header {
+        text-align   : center;
+        // Fluido: 1.5rem (320px) → 3rem (1280px)
+        margin-bottom: f.fluid(24, 48, 320, 1280, rem);
+
+        h2 {
+            font-size     : f.fluid(28, 48);
+            letter-spacing: -0.02em;
+            margin-bottom : v.$space-4;
+        }
+    }
+
+    &__list {
+        max-width     : 760px;
+        margin-inline : auto;
+        display       : flex;
+        flex-direction: column;
+        gap           : v.$space-3;
+    }
+
+    &__item {
+        background   : v.$gradient-card;
+        border       : 1px solid v.$color-border;
+        border-radius: v.$border-radius-xl;
+        overflow     : hidden;
+        transition   : border-color v.$transition-base;
+
+        &:hover,
+        &[open] {
+            border-color: rgba(v.$color-accent, 0.4);
+        }
+
+        &[open] summary::after {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__question {
+        // Bloque fluido: 0.75rem → 1.25rem | Inline fluido: 1rem → 1.5rem
+        padding        : f.fluid(12, 20, 320, 1280, rem) f.fluid(16, 24, 320, 1280, rem);
+        cursor         : pointer;
+        font-size      : v.$font-size-base;
+        font-weight    : v.$font-weight-semibold;
+        color          : v.$color-white;
+        list-style     : none;
+        display        : flex;
+        justify-content: space-between;
+        align-items    : center;
+        gap            : v.$space-4;
+        user-select    : none;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &::after {
+            content    : '';
+            display    : block;
+            width      : 1.25rem;
+            height     : 1.25rem;
+            flex-shrink: 0;
+            background : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2338aecc' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") center/contain no-repeat;
+            transition : transform v.$transition-base;
+        }
+    }
+
+    &__answer {
+        // Inline fluido: 1rem → 1.5rem | Bloque fluido: 0.75rem → 1.25rem
+        padding    : 0 f.fluid(16, 24, 320, 1280, rem) f.fluid(12, 20, 320, 1280, rem);
+        font-size  : v.$font-size-sm;
+        color      : v.$color-text-muted;
+        line-height: v.$line-height-loose;
+        border-top : 1px solid rgba(v.$color-border, 0.5);
+        padding-top: f.fluid(12, 16, 320, 1280, rem);
+    }
+
+    // ── Métodos de pago ─────────────────────────────────────
+    &__payment {
+        max-width    : 760px;
+        margin-inline: auto;
+        margin-top   : f.fluid(28, 40, 320, 1280, rem);
+        padding      : f.fluid(16, 24, 320, 1280, rem);
+        background   : v.$gradient-card;
+        border       : 1px solid v.$color-border;
+        border-radius: v.$border-radius-xl;
+    }
+
+    &__payment-title {
+        display       : flex;
+        align-items   : center;
+        gap           : v.$space-2;
+        font-size     : v.$font-size-sm;
+        font-weight   : v.$font-weight-semibold;
+        color         : v.$color-text-muted;
+        margin-bottom : v.$space-4;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+
+        svg {
+            color      : v.$color-accent;
+            flex-shrink: 0;
+        }
+    }
+
+    &__payment-methods {
+        display   : flex;
+        flex-wrap : wrap;
+        gap       : v.$space-2;
+        list-style: none;
+        padding   : 0;
+        margin    : 0;
+    }
+
+    &__payment-method {
+        display        : flex;
+        align-items    : center;
+        justify-content: center;
+        gap            : v.$space-2;
+        flex           : 1;
+        min-width      : 11rem;
+        padding        : v.$space-3 v.$space-4;
+        background     : rgba(v.$color-accent, 0.08);
+        border         : 1px solid rgba(v.$color-accent, 0.2);
+        border-radius  : v.$border-radius-full;
+        font-size      : v.$font-size-sm;
+        font-weight    : v.$font-weight-medium;
+        color          : v.$color-text;
+        white-space    : nowrap;
+        transition     : background-color v.$transition-fast, border-color v.$transition-fast;
+
+        svg {
+            color      : v.$color-accent;
+            flex-shrink: 0;
+        }
+
+        &:hover {
+            background  : rgba(v.$color-accent, 0.14);
+            border-color: rgba(v.$color-accent, 0.4);
+        }
+    }
+}

@@ -1,0 +1,22 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    icon?: string;
+    class?: string;
+}
+
+const { title, description, icon, class: className } = Astro.props;
+---
+
+<article class:list={["card", className]}>
+    {
+        icon && (
+            <div class="card__icon" aria-hidden="true">
+                <Fragment set:html={icon} />
+            </div>
+        )
+    }
+    <h3 class="card__title">{title}</h3>
+    <p class="card__description">{description}</p>
+</article>

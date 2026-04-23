@@ -1,0 +1,123 @@
+---
+import { Icon } from "astro-icon/components";
+import Button from "../ui/Button.astro";
+import IconWhatsApp from "../icons/IconWhatsApp.astro";
+import IconTelegram from "../icons/IconTelegram.astro";
+
+const mainFeatures = [
+    "Diseño 100% personalizado",
+    "SEO técnico completo",
+    "Page Speed optimizado",
+    "Responsive (móvil + tablet + desktop)",
+    "Hosting en Vercel gratis",
+    "SSL incluido",
+    "Soporte 7 días post-entrega",
+    "Pago: 50% al iniciar / 50% al entregar",
+];
+
+const extras = [
+    { price: "+$10", label: "Google Analytics + Search Console" },
+    {
+        price: "+$20",
+        label: "Mantenimiento mensual (actualizaciones + soporte extendido)",
+    },
+    { price: "+$15", label: "Cambios mayores post-aprobación (por iteración)" },
+];
+---
+
+<section class="pricing section" id="precios" aria-labelledby="pricing-title">
+    <div class="container">
+        <div class="pricing__header">
+            <h2 id="pricing-title">Inversión transparente, sin sorpresas</h2>
+            <p>Un precio fijo, todo incluido. Sin letra pequeña.</p>
+        </div>
+
+        <div class="pricing__grid">
+            <div
+                class="pricing__card pricing__card--featured"
+                role="region"
+                aria-label="Paquete único"
+            >
+                <p class="pricing__label">
+                    Paquete único &mdash; Todo incluido
+                </p>
+                <p class="pricing__price">50 USD</p>
+                <p class="pricing__period">
+                    Entrega en 24-72 horas según complejidad
+                </p>
+
+                <ul class="pricing__features" role="list">
+                    {
+                        mainFeatures.map((f) => (
+                            <li class="pricing__feature">
+                                <Icon
+                                    name="lucide:check-circle-2"
+                                    width={18}
+                                    height={18}
+                                    aria-hidden="true"
+                                />
+                                {f}
+                            </li>
+                        ))
+                    }
+                </ul>
+
+                <div class="pricing__actions">
+                    <Button
+                        href="https://wa.me/5355055789?text=Hola%20Luis%2C%20quiero%20cotizar%20mi%20landing"
+                        variant="whatsapp"
+                        size="lg"
+                    >
+                        <IconWhatsApp width={20} height={20} />
+                        Cotizar por WhatsApp
+                    </Button>
+                    <Button
+                        href="https://t.me/HACKERMATR1X"
+                        variant="telegram"
+                        size="lg"
+                    >
+                        <IconTelegram width={20} height={20} />
+                        Cotizar por Telegram
+                    </Button>
+                </div>
+            </div>
+
+            <div
+                class="pricing__extras"
+                role="region"
+                aria-label="Servicios adicionales"
+            >
+                <p class="pricing__extras-title">
+                    Servicios adicionales &mdash; Opcionales
+                </p>
+
+                {
+                    extras.map((extra) => (
+                        <div class="pricing__extra-item">
+                            <span class="pricing__extra-price">
+                                {extra.price} USD
+                            </span>
+                            <span class="pricing__extra-desc">
+                                {extra.label}
+                            </span>
+                        </div>
+                    ))
+                }
+
+                <div class="pricing__custom">
+                    <p>
+                        ¿Tienes un proyecto más complejo? Hablemos y te doy un
+                        presupuesto personalizado sin compromiso.
+                    </p>
+                    <Button
+                        href="https://wa.me/5355055789?text=Hola%20Luis%2C%20tengo%20un%20proyecto%20especial"
+                        variant="outline"
+                    >
+                        <IconWhatsApp width={16} height={16} />
+                        Consultar presupuesto
+                    </Button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

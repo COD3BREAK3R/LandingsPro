@@ -1,0 +1,90 @@
+---
+import { Icon } from "astro-icon/components";
+import IconWhatsApp from "../icons/IconWhatsApp.astro";
+import IconTelegram from "../icons/IconTelegram.astro";
+
+const year = new Date().getFullYear();
+
+const trustItems = [
+    { icon: "lucide:shield-check", label: "Pago seguro" },
+    { icon: "lucide:lock", label: "Seguridad garantizada" },
+    { icon: "lucide:star", label: "Satisfacción garantizada" },
+];
+---
+
+<footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+        <div class="footer__trust" aria-label="Garantías">
+            {
+                trustItems.map((item) => (
+                    <span class="footer__trust-item">
+                        <Icon
+                            name={item.icon}
+                            width={16}
+                            height={16}
+                            aria-hidden="true"
+                        />
+                        {item.label}
+                    </span>
+                ))
+            }
+        </div>
+
+        <div class="footer__bottom">
+            <p class="footer__copy">
+                &copy; {year} Luis Enrique &mdash; Desarrollador Full Stack Profesional
+            </p>
+
+            <nav class="footer__social" aria-label="Redes sociales">
+                <a
+                    href="https://wa.me/5355055789"
+                    class="footer__social-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp"
+                >
+                    <IconWhatsApp width={16} height={16} />
+                    WhatsApp
+                </a>
+                <a
+                    href="https://t.me/HACKERMATR1X"
+                    class="footer__social-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Telegram"
+                >
+                    <IconTelegram width={16} height={16} />
+                    Telegram
+                </a>
+                <a
+                    href="mailto:l.enrique1909@gmail.com"
+                    class="footer__social-link"
+                    aria-label="Email"
+                >
+                    <Icon
+                        name="lucide:mail"
+                        width={16}
+                        height={16}
+                        aria-hidden="true"
+                    />
+                    Email
+                </a>
+                <a
+                    href="https://www.linkedin.com/in/luis-enrique-ferrer-1889851b4"
+                    class="footer__social-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                >
+                    <Icon
+                        name="lucide:linkedin"
+                        width={16}
+                        height={16}
+                        aria-hidden="true"
+                    />
+                    LinkedIn
+                </a>
+            </nav>
+        </div>
+    </div>
+</footer>

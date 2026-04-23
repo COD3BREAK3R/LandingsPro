@@ -1,0 +1,45 @@
+---
+interface Props {
+    variant?: "primary" | "outline" | "ghost" | "whatsapp" | "telegram";
+    size?: "sm" | "base" | "lg";
+    href?: string;
+    type?: "button" | "submit" | "reset";
+    full?: boolean;
+    class?: string;
+    [key: string]: unknown;
+}
+
+const {
+    variant = "primary",
+    size = "base",
+    href,
+    type = "button",
+    full = false,
+    class: className,
+    ...rest
+} = Astro.props;
+
+const classes = [
+    "btn",
+    `btn--${variant}`,
+    size !== "base" && `btn--${size}`,
+    full && "btn--full",
+    className,
+]
+    .filter(Boolean)
+    .join(" ");
+
+const Tag = href ? "a" : "button";
+---
+
+{
+    href ? (
+        <a href={href} class={classes} {...rest}>
+            <slot />
+        </a>
+    ) : (
+        <button type={type} class={classes} {...rest}>
+            <slot />
+        </button>
+    )
+}

@@ -1,0 +1,32 @@
+// ============================================================
+// MAIN ENTRY — Importa todo el sistema de estilos (7-1 pattern)
+// ============================================================
+
+// 1. Abstracts (sin output CSS)
+@use 'abstracts/variables'as *;
+@use 'abstracts/functions'as *;
+@use 'abstracts/mixins'as *;
+
+// 2. Base
+@use 'base/reset';
+@use 'base/typography';
+
+// 3. Layout
+@use 'layout/grid';
+@use 'layout/header';
+@use 'layout/footer';
+
+// 4. Components
+@use 'components/button';
+@use 'components/card';
+@use 'components/badge';
+
+// 5. Sections
+@use 'sections/hero';
+@use 'sections/features';
+@use 'sections/includes';
+@use 'sections/how-it-works';
+@use 'sections/works';
+@use 'sections/pricing';
+@use 'sections/faq';
+@use 'sections/cta';

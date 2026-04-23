@@ -1,0 +1,36 @@
+{
+    "title": "Todo lo que necesitas",
+    "description": "Una plataforma completa para crear, publicar y optimizar tu landing page.",
+    "items": [
+        {
+            "title": "Rendimiento extremo",
+            "description": "Astro genera HTML estático, logrando puntuaciones perfectas en Core Web Vitals sin configuración extra.",
+            "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'/></svg>"
+        },
+        {
+            "title": "SCSS modular",
+            "description": "Sistema de diseño basado en tokens con arquitectura 7-1. Variables, mixins y funciones reutilizables.",
+            "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><circle cx='12' cy='12' r='10'/><path d='M8 14s1.5 2 4 2 4-2 4-2'/><line x1='9' y1='9' x2='9.01' y2='9'/><line x1='15' y1='9' x2='15.01' y2='9'/></svg>"
+        },
+        {
+            "title": "TypeScript estricto",
+            "description": "Todo tipado con TypeScript en modo strict. Props de componentes documentadas e interfaces claras.",
+            "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><polyline points='16 18 22 12 16 6'/><polyline points='8 6 2 12 8 18'/></svg>"
+        },
+        {
+            "title": "SEO optimizado",
+            "description": "Meta tags, Open Graph y Twitter Cards configuradas desde el layout base. Canonical URL automático.",
+            "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><circle cx='11' cy='11' r='8'/><line x1='21' y1='21' x2='16.65' y2='16.65'/></svg>"
+        },
+        {
+            "title": "Accesibilidad",
+            "description": "ARIA labels, roles semánticos, focus-visible y jerarquía HTML correcta desde el primer día.",
+            "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'/><circle cx='9' cy='7' r='4'/><path d='M23 21v-2a4 4 0 0 0-3-3.87'/><path d='M16 3.13a4 4 0 0 1 0 7.75'/></svg>"
+        },
+        {
+            "title": "Fácil de escalar",
+            "description": "Estructura de carpetas clara: layouts, componentes, secciones, datos y scripts totalmente separados.",
+            "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><rect x='3' y='3' width='7' height='7'/><rect x='14' y='3' width='7' height='7'/><rect x='14' y='14' width='7' height='7'/><rect x='3' y='14' width='7' height='7'/></svg>"
+        }
+    ]
+}

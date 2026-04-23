@@ -1,0 +1,232 @@
+// ============================================================
+// SECTIONS — Works (Trabajos Destacados)
+// ============================================================
+@use '../abstracts/variables'as v;
+@use '../abstracts/mixins'as m;
+@use '../abstracts/functions'as f;
+
+.works {
+
+    // ── Header ──────────────────────────────────────────────
+    &__header {
+        text-align: center;
+        max-width : 600px;
+        margin    : 0 auto f.fluid(40, 72, 320, 1280, rem);
+
+        h2 {
+            margin-bottom: v.$space-4;
+        }
+
+        p {
+            color      : v.$color-text-muted;
+            line-height: v.$line-height-loose;
+        }
+    }
+
+    &__eyebrow {
+        display       : inline-flex;
+        align-items   : center;
+        gap           : v.$space-3;
+        font-size     : v.$font-size-xs;
+        font-weight   : v.$font-weight-semibold;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color         : v.$color-accent;
+        margin-bottom : v.$space-4;
+
+        &::before,
+        &::after {
+            content   : '';
+            display   : block;
+            width     : 1.5rem;
+            height    : 1px;
+            background: v.$color-accent;
+            opacity   : 0.5;
+        }
+    }
+
+    // ── Grid ────────────────────────────────────────────────
+    &__grid {
+        display              : grid;
+        grid-template-columns: 1fr;
+        gap                  : f.fluid(20, 28, 320, 1280, rem);
+
+        @include m.respond-to(md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include m.respond-to(lg) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    // ── Card ────────────────────────────────────────────────
+    &__card {
+        background    : v.$gradient-card;
+        border        : 1px solid v.$color-border;
+        border-radius : v.$border-radius-2xl;
+        overflow      : hidden;
+        display       : flex;
+        flex-direction: column;
+        transition    :
+            border-color v.$transition-base,
+            box-shadow v.$transition-base,
+            transform v.$transition-base;
+
+        &:hover {
+            border-color: rgba(v.$color-accent, 0.5);
+            box-shadow  : v.$shadow-lg, 0 0 0 1px rgba(v.$color-accent, 0.1);
+            transform   : translateY(-6px);
+
+            .works__browser-body img {
+                transform: scale(1.04);
+            }
+
+            .works__link {
+                gap: v.$space-2;
+            }
+        }
+    }
+
+    // ── Browser mockup ───────────────────────────────────────
+    &__preview {
+        border-bottom: 1px solid v.$color-border;
+    }
+
+    &__browser-bar {
+        display      : flex;
+        align-items  : center;
+        gap          : v.$space-2;
+        padding      : v.$space-3 f.fluid(12, 16, 320, 1280, rem);
+        background   : rgba(v.$deep-space-800, 0.7);
+        border-bottom: 1px solid v.$color-border;
+    }
+
+    &__dot {
+        width        : 10px;
+        height       : 10px;
+        border-radius: v.$border-radius-full;
+        flex-shrink  : 0;
+
+        &--red {
+            background: #ff5f57;
+        }
+
+        &--yellow {
+            background: #febc2e;
+        }
+
+        &--green {
+            background: #28c840;
+        }
+    }
+
+    &__url-bar {
+        flex         : 1;
+        font-size    : 0.6875rem;
+        color        : v.$color-text-subtle;
+        background   : rgba(v.$deep-space-800, 0.5);
+        border       : 1px solid v.$color-border;
+        border-radius: v.$border-radius-full;
+        padding      : 2px v.$space-3;
+        white-space  : nowrap;
+        overflow     : hidden;
+        text-overflow: ellipsis;
+        margin-left  : v.$space-2;
+    }
+
+    &__browser-body {
+        height  : f.fluid(180, 220, 320, 1280, rem);
+        overflow: hidden;
+
+        img {
+            width          : 100%;
+            height         : 100%;
+            object-fit     : cover;
+            object-position: top center;
+            display        : block;
+            transition     : transform 0.4s ease;
+        }
+    }
+
+    // ── Content ─────────────────────────────────────────────
+    &__content {
+        padding       : f.fluid(20, 28, 320, 1280, rem);
+        display       : flex;
+        flex-direction: column;
+        gap           : v.$space-4;
+        flex          : 1; // fill card height so links align at bottom
+    }
+
+    &__meta {
+        display    : flex;
+        align-items: center;
+        gap        : v.$space-3;
+    }
+
+    &__number {
+        font-size           : v.$font-size-xs;
+        font-weight         : v.$font-weight-bold;
+        color               : v.$color-text-subtle;
+        letter-spacing      : 0.06em;
+        font-variant-numeric: tabular-nums;
+    }
+
+    &__title {
+        font-size  : v.$font-size-lg;
+        font-weight: v.$font-weight-semibold;
+        color      : v.$color-white;
+        line-height: v.$line-height-tight;
+        margin     : 0;
+    }
+
+    &__description {
+        font-size  : v.$font-size-sm;
+        color      : v.$color-text-muted;
+        line-height: v.$line-height-normal;
+        margin     : 0;
+        flex       : 1; // push tags + link down
+    }
+
+    &__tags {
+        display   : flex;
+        flex-wrap : wrap;
+        gap       : v.$space-2;
+        list-style: none;
+        padding   : 0;
+        margin    : 0;
+    }
+
+    &__tag {
+        font-size    : v.$font-size-xs;
+        font-weight  : v.$font-weight-medium;
+        color        : v.$color-accent;
+        background   : v.$color-accent-muted;
+        border       : 1px solid v.$color-accent-border;
+        border-radius: v.$border-radius-full;
+        padding      : 2px v.$space-3;
+        white-space  : nowrap;
+    }
+
+    &__link {
+        display        : inline-flex;
+        align-items    : center;
+        gap            : v.$space-1;
+        font-size      : v.$font-size-sm;
+        font-weight    : v.$font-weight-semibold;
+        color          : v.$color-accent;
+        text-decoration: none;
+        margin-top     : auto;
+        transition     : gap v.$transition-base, color v.$transition-base;
+
+        &:hover {
+            color: v.$color-accent-hover;
+        }
+
+        &:focus-visible {
+            outline       : 2px solid v.$color-accent;
+            outline-offset: 3px;
+            border-radius : v.$border-radius-sm;
+        }
+    }
+}

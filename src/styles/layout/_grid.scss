@@ -1,0 +1,68 @@
+// ============================================================
+// LAYOUT — Container y grid del sistema
+// ============================================================
+@use '../abstracts/variables'as v;
+@use '../abstracts/mixins'as m;
+@use '../abstracts/functions'as f;
+
+.container {
+    width         : 100%;
+    max-width     : v.$container-max-width;
+    margin-inline : auto;
+    // Fluido: 1rem (320px) → 2rem (1280px)
+    padding-inline: f.fluid(16, 32, 320, 1280, rem);
+}
+
+.section {
+    // Fluido: 2rem (320px) → 6rem (1280px)
+    padding-block: f.fluid(32, 96, 320, 1280, rem);
+}
+
+.grid {
+    display: grid;
+    gap    : v.$space-6;
+}
+
+.grid-2 {
+    @extend .grid;
+
+    @include m.respond-to(md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.grid-3 {
+    @extend .grid;
+
+    @include m.respond-to(md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include m.respond-to(lg) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.grid-4 {
+    @extend .grid;
+
+    @include m.respond-to(sm) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include m.respond-to(xl) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.flex-center {
+    @include m.flex-center;
+}
+
+.flex-between {
+    @include m.flex-between;
+}
+
+.flex-column {
+    @include m.flex-column;
+}

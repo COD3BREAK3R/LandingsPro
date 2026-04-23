@@ -1,0 +1,69 @@
+---
+import { Icon } from "astro-icon/components";
+import Button from "../ui/Button.astro";
+import IconWhatsApp from "../icons/IconWhatsApp.astro";
+import IconTelegram from "../icons/IconTelegram.astro";
+
+const trustItems = [
+    { icon: "lucide:award", label: "+2 años de experiencia" },
+    { icon: "lucide:zap", label: "Entrega express 24-72h" },
+    { icon: "lucide:circle-dollar-sign", label: "Desde $50 USD" },
+];
+---
+
+<section class="hero" aria-labelledby="hero-title">
+    <div class="hero__bg" aria-hidden="true"></div>
+
+    <div class="container">
+        <div class="hero__inner">
+            <div class="hero__content">
+                <h1 id="hero-title" class="hero__title">
+                    Tu negocio merece una web
+                    <span>que venda mientras duermes</span>
+                </h1>
+
+                <p class="hero__description">
+                    Soy <strong>Luis Enrique</strong>, desarrollador Full Stack.
+                    Creo landing pages profesionales en <strong
+                        >24-72 horas</strong
+                    > que convierten visitantes en clientes.
+                </p>
+
+                <div class="hero__actions">
+                    <Button
+                        href="https://wa.me/5355055789?text=Hola%20Luis%2C%20quiero%20cotizar%20mi%20landing"
+                        variant="whatsapp"
+                        size="lg"
+                    >
+                        <IconWhatsApp width={20} height={20} />
+                        Cotiza por WhatsApp
+                    </Button>
+                    <Button
+                        href="https://t.me/HACKERMATR1X"
+                        variant="telegram"
+                        size="lg"
+                    >
+                        <IconTelegram width={20} height={20} />
+                        Cotiza por Telegram
+                    </Button>
+                </div>
+
+                <div class="hero__trust-bar" aria-label="Garantías">
+                    {
+                        trustItems.map((item) => (
+                            <span class="hero__trust-item">
+                                <Icon
+                                    name={item.icon}
+                                    width={16}
+                                    height={16}
+                                    aria-hidden="true"
+                                />
+                                {item.label}
+                            </span>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,37 @@
+// ============================================================
+// SECTIONS — Features / Por qué trabajar conmigo
+// ============================================================
+@use '../abstracts/variables'as v;
+@use '../abstracts/mixins'as m;
+@use '../abstracts/functions'as f;
+
+.features {
+    &__header {
+        text-align   : center;
+        // Fluido: 1.5rem (320px) → 3rem (1280px)
+        margin-bottom: f.fluid(24, 48, 320, 1280, rem);
+
+        h2 {
+            font-size     : f.fluid(28, 48);
+            margin-bottom : v.$space-4;
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            font-size    : v.$font-size-lg;
+            color        : v.$color-text-muted;
+            max-width    : 55ch;
+            margin-inline: auto;
+        }
+    }
+
+    &__grid {
+        display              : grid;
+        gap                  : v.$space-6;
+        grid-template-columns: 1fr;
+
+        @include m.respond-to(md) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}

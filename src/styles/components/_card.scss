@@ -1,0 +1,54 @@
+// ============================================================
+// COMPONENTS — Card
+// ============================================================
+@use '../abstracts/variables'as v;
+@use '../abstracts/mixins'as m;
+@use '../abstracts/functions'as f;
+
+.card {
+    background   : v.$gradient-card;
+    border       : 1px solid v.$color-border;
+    border-radius: v.$border-radius-2xl;
+    // Fluido: 1rem (320px) → 2rem (1280px)
+    padding      : f.fluid(16, 32, 320, 1280, rem);
+    transition   :
+        border-color v.$transition-base,
+        box-shadow v.$transition-base,
+        transform v.$transition-base;
+
+    &:hover {
+        border-color: rgba(v.$color-accent, 0.5);
+        box-shadow  : v.$shadow-lg, 0 0 0 1px rgba(v.$color-accent, 0.1);
+        transform   : translateY(-4px);
+    }
+
+    &__icon {
+        width : 3rem;
+        height: 3rem;
+        @include m.flex-center;
+        background   : v.$color-accent-muted;
+        border       : 1px solid v.$color-accent-border;
+        border-radius: v.$border-radius-lg;
+        margin-bottom: v.$space-5;
+        color        : v.$color-accent;
+        flex-shrink  : 0;
+
+        svg {
+            width : 1.5rem;
+            height: 1.5rem;
+        }
+    }
+
+    &__title {
+        font-size    : v.$font-size-lg;
+        font-weight  : v.$font-weight-semibold;
+        color        : v.$color-white;
+        margin-bottom: v.$space-3;
+    }
+
+    &__description {
+        font-size  : v.$font-size-sm;
+        color      : v.$color-text-muted;
+        line-height: v.$line-height-loose;
+    }
+}

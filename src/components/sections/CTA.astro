@@ -1,0 +1,49 @@
+---
+import { Icon } from "astro-icon/components";
+import Button from "../ui/Button.astro";
+import IconWhatsApp from "../icons/IconWhatsApp.astro";
+import IconTelegram from "../icons/IconTelegram.astro";
+---
+
+<section class="section" aria-labelledby="cta-title">
+    <div class="container">
+        <div class="cta-section">
+            <div class="cta-section__content">
+                <h2 id="cta-title">
+                    ¿Listo para tener una web que trabaje por ti?
+                </h2>
+                <p>
+                    No dejes que tus competidores te ganen más clientes por
+                    tener mejor presencia online. En 3 días o menos, puedes
+                    tener una landing profesional que genere consultas y ventas.
+                </p>
+
+                <div class="cta-section__actions">
+                    <Button
+                        href="https://wa.me/5355055789?text=Hola%20Luis%2C%20quiero%20reservar%20mi%20cupo"
+                        variant="whatsapp"
+                        size="lg"
+                    >
+                        <IconWhatsApp width={20} height={20} />
+                        ¡Reserva tu cupo por WhatsApp!
+                    </Button>
+                    <Button
+                        href="https://t.me/HACKERMATR1X"
+                        variant="telegram"
+                        size="lg"
+                    >
+                        <IconTelegram width={20} height={20} />
+                        ¡Reserva tu cupo por Telegram!
+                    </Button>
+                </div>
+
+                <p class="cta-section__email">
+                    O escríbeme al correo:
+                    <a href="mailto:l.enrique1909@gmail.com"
+                        >l.enrique1909@gmail.com</a
+                    >
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,79 @@
+// ============================================================
+// SECTIONS — CTA Final
+// ============================================================
+@use '../abstracts/variables'as v;
+@use '../abstracts/mixins'as m;
+@use '../abstracts/functions'as f;
+
+.cta-section {
+    position        : relative;
+    overflow        : hidden;
+    border-radius   : v.$border-radius-2xl;
+    // Bloque fluido: 2rem → 4rem | Inline fluido: 1rem → 2rem
+    padding         : f.fluid(32, 64, 320, 1280, rem) f.fluid(16, 32, 320, 1280, rem);
+    text-align      : center;
+    border          : 1px solid rgba(v.$color-accent, 0.2);
+    background      : v.$gradient-cta;
+
+    &::before {
+        content: '';
+        @include m.overlay;
+        background: v.$gradient-hero;
+        z-index   : 0;
+    }
+
+    &__content {
+        position: relative;
+        z-index : v.$z-base;
+        @include m.flex-column;
+        align-items: center;
+        gap        : v.$space-6;
+    }
+
+    h2 {
+        font-size     : f.fluid(28, 48);
+        color         : v.$color-white;
+        letter-spacing: -0.02em;
+    }
+
+    p {
+        font-size  : v.$font-size-lg;
+        color      : v.$color-text-muted;
+        max-width  : 52ch;
+        line-height: v.$line-height-loose;
+    }
+
+    &__actions {
+        display        : flex;
+        flex-wrap      : wrap;
+        gap            : v.$space-4;
+        justify-content: center;
+
+        // En móvil (< md) los botones ocupan todo el ancho y se apilan
+        @include m.respond-below(md) {
+            flex-direction: column;
+            width         : 100%;
+            max-width     : 360px;
+            align-self    : center;
+
+            .btn {
+                width          : 100%;
+                justify-content: center;
+            }
+        }
+    }
+
+    &__email {
+        font-size: v.$font-size-sm;
+        color    : v.$color-text-subtle;
+
+        a {
+            color     : v.$color-accent;
+            transition: color v.$transition-fast;
+
+            &:hover {
+                color: v.$color-accent-hover;
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const items = [
+  'Diseño 100% personalizado (nada de plantillas repetidas)',
+  'Sugerencia de copy estructurado para conversión',
+  'Paleta de colores profesional + tipografía adecuada',
+  'Iconos e imágenes acordes a tu negocio',
+  'SEO técnico: meta tags, Open Graph, schema.org',
+  'Page Speed optimizado (métricas verdes garantizadas)',
+  'Totalmente responsive (móvil, tablet, desktop)',
+  'Dominio + Hosting en Vercel 100% gratis',
+  'Certificado SSL incluido totalmente gratis',
+  'Soporte post-entrega: 7 días por WhatsApp',
+];
+---
+
+<section class='includes section' id='incluye' aria-labelledby='includes-title'>
+  <div class='container'>
+    <div class='includes__header'>
+      <h2 id='includes-title'>Tu landing lista para vender</h2>
+      <p class='includes__header-price'>$50 USD</p>
+      <p class='includes__header-note'>Todo incluido &mdash; sin costos ocultos</p>
+    </div>
+
+    <div class='includes__grid'>
+      {items.map((item) => (
+        <div class='includes__item'>
+          <span class='includes__item-icon' aria-hidden='true'>
+            <Icon name='lucide:check-circle-2' width={20} height={20} />
+          </span>
+          <span class='includes__item-text'>{item}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

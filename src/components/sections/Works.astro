@@ -1,0 +1,116 @@
+---
+import { Icon } from "astro-icon/components";
+
+const projects = [
+    {
+        id: "01",
+        category: "Portafolio",
+        title: "Portafolio Personal",
+        description:
+            "Sitio web personal con portafolio de proyectos, stack tecnológico y contacto. Diseñado para comunicar experiencia Full Stack y atraer clientes o empleadores.",
+        url: "https://luisenriqueferrer.vercel.app",
+        urlDisplay: "luisenriqueferrer.vercel.app",
+        image: "/img/SharedScreenshot.avif",
+        colorClass: "works__card--portfolio",
+    },
+    {
+        id: "02",
+        category: "Landing Page",
+        title: "Plancha Perfecta",
+        description:
+            "Landing page para servicio de planchado profesional en Centro Habana. Propuesta de valor clara, precios transparentes y CTA directo a WhatsApp para máxima conversión.",
+        url: "https://plancha-perfecta.vercel.app",
+        urlDisplay: "plancha-perfecta.vercel.app",
+        image: "/img/SharedScreenshot2.avif",
+        colorClass: "works__card--laundry",
+    },
+    {
+        id: "03",
+        category: "Web Corporativa",
+        title: "RedEyeGuard",
+        description:
+            "Plataforma corporativa para empresa de ciberseguridad internacional. Multilingüe, con servicios especializados, equipo de expertos y diseño orientado a transmitir confianza.",
+        url: "https://red-eye-guard.vercel.app",
+        urlDisplay: "red-eye-guard.vercel.app",
+        image: "/img/SharedScreenshot3.avif",
+        colorClass: "works__card--cyber",
+    },
+];
+---
+
+<section class="works section" id="trabajos" aria-labelledby="works-title">
+    <div class="container">
+        <div class="works__header">
+            <span class="works__eyebrow" aria-hidden="true"
+                >Proyectos destacados</span
+            >
+            <h2 id="works-title">Trabajos que hablan por mí</h2>
+            <p>
+                Cada proyecto es una solución real para un negocio real. Estas
+                son algunas de las webs que he construido y que demuestran mi
+                creatividad.
+            </p>
+        </div>
+
+        <div class="works__grid">
+            {
+                projects.map((project) => (
+                    <article class={`works__card ${project.colorClass}`}>
+                        {/* Browser mockup */}
+                        <div class="works__preview" aria-hidden="true">
+                            <div class="works__browser-bar">
+                                <span class="works__dot works__dot--red" />
+                                <span class="works__dot works__dot--yellow" />
+                                <span class="works__dot works__dot--green" />
+                                <span class="works__url-bar">
+                                    {project.urlDisplay}
+                                </span>
+                            </div>
+                            <div class="works__browser-body">
+                                <img
+                                    src={project.image}
+                                    alt={`Captura de pantalla de ${project.title}`}
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Content */}
+                        <div class="works__content">
+                            <div class="works__meta">
+                                <span class="works__number" aria-hidden="true">
+                                    {project.id}
+                                </span>
+                                <span class="badge badge--accent">
+                                    {project.category}
+                                </span>
+                            </div>
+
+                            <h3 class="works__title">{project.title}</h3>
+                            <p class="works__description">
+                                {project.description}
+                            </p>
+
+                            <a
+                                href={project.url}
+                                class="works__link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`Ver proyecto ${project.title} (abre en nueva pestaña)`}
+                            >
+                                Ver proyecto en vivo
+                                <Icon
+                                    name="lucide:arrow-up-right"
+                                    width={15}
+                                    height={15}
+                                    aria-hidden="true"
+                                />
+                            </a>
+                        </div>
+                    </article>
+                ))
+            }
+        </div>
+    </div>
+</section>

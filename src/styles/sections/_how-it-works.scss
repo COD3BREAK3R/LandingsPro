@@ -1,0 +1,73 @@
+// ============================================================
+// SECTIONS — How it works
+// ============================================================
+@use '../abstracts/variables'as v;
+@use '../abstracts/mixins'as m;
+@use '../abstracts/functions'as f;
+
+.how-it-works {
+    &__header {
+        text-align   : center;
+        // Fluido: 1.5rem (320px) → 3rem (1280px)
+        margin-bottom: f.fluid(24, 48, 320, 1280, rem);
+
+        h2 {
+            font-size     : f.fluid(28, 48);
+            letter-spacing: -0.02em;
+            margin-bottom : v.$space-4;
+        }
+    }
+
+    &__steps {
+        display: grid;
+        gap    : v.$space-6;
+
+        @include m.respond-to(lg) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    &__step {
+        position     : relative;
+        // Fluido: 1rem (320px) → 2rem (1280px)
+        padding      : f.fluid(16, 32, 320, 1280, rem);
+        background   : v.$gradient-card;
+        border       : 1px solid v.$color-border;
+        border-radius: v.$border-radius-2xl;
+        transition   : border-color v.$transition-base, transform v.$transition-base;
+
+        &:hover {
+            border-color: rgba(v.$color-accent, 0.4);
+            transform   : translateY(-3px);
+        }
+    }
+
+    &__number {
+        display        : inline-flex;
+        align-items    : center;
+        justify-content: center;
+        width          : 2.5rem;
+        height         : 2.5rem;
+        border-radius  : v.$border-radius-full;
+        background     : v.$gradient-accent;
+        color          : v.$color-white;
+        font-weight    : v.$font-weight-bold;
+        font-size      : v.$font-size-base;
+        margin-bottom  : v.$space-5;
+        box-shadow     : v.$shadow-accent;
+        flex-shrink    : 0;
+    }
+
+    &__title {
+        font-size    : v.$font-size-lg;
+        font-weight  : v.$font-weight-semibold;
+        color        : v.$color-white;
+        margin-bottom: v.$space-3;
+    }
+
+    &__description {
+        font-size  : v.$font-size-sm;
+        color      : v.$color-text-muted;
+        line-height: v.$line-height-loose;
+    }
+}

@@ -1,0 +1,114 @@
+---
+import { Icon } from "astro-icon/components";
+
+const faqs = [
+    {
+        question: "¿Qué necesito para empezar?",
+        answer: "Solo tu idea, información de tu negocio (qué haces, precios, ubicación) y referencias visuales si tienes (opcional). Yo me encargo del resto.",
+    },
+    {
+        question: "¿Y si no me gusta el diseño?",
+        answer: "Trabajamos con aprobaciones por etapas. Puedes pedir ajustes hasta que estés 100% satisfecho antes de la entrega final.",
+    },
+    {
+        question: "¿Incluye el dominio y hosting?",
+        answer: "El hosting en Vercel es gratis y lo configuro yo. El dominio (tunegocio.com) lo compras tú aparte (~$10-15/año) y te ayudo a configurarlo.",
+    },
+    {
+        question: "¿Puedo hacer cambios después?",
+        answer: "Tienes 7 días de soporte incluido para ajustes menores. Después, puedo ayudarte con un costo adicional o te entrego el código para que lo modifiques.",
+    },
+    {
+        question: "¿Trabajas con clientes fuera de Cuba?",
+        answer: "Sí, trabajo remoto con cualquier país. A continuación puedes ver todos los métodos de pago que acepto.",
+    },
+];
+---
+
+<section class="faq section" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+        <div class="faq__header">
+            <h2 id="faq-title">Preguntas y Respuestas</h2>
+            <p>Todo lo que necesitas saber antes de empezar.</p>
+        </div>
+
+        <dl class="faq__list">
+            {
+                faqs.map((item) => (
+                    <details class="faq__item">
+                        <summary class="faq__question">{item.question}</summary>
+                        <dd class="faq__answer">{item.answer}</dd>
+                    </details>
+                ))
+            }
+        </dl>
+
+        <div class="faq__payment">
+            <p class="faq__payment-title">
+                <Icon
+                    name="lucide:wallet"
+                    width={18}
+                    height={18}
+                    aria-hidden="true"
+                />
+                Métodos de pago aceptados
+            </p>
+            <ul class="faq__payment-methods" aria-label="Métodos de pago">
+                <li class="faq__payment-method">
+                    <Icon
+                        name="lucide:dollar-sign"
+                        width={16}
+                        height={16}
+                        aria-hidden="true"
+                    />
+                    USD
+                </li>
+                <li class="faq__payment-method">
+                    <Icon
+                        name="lucide:euro"
+                        width={16}
+                        height={16}
+                        aria-hidden="true"
+                    />
+                    Euros
+                </li>
+                <li class="faq__payment-method">
+                    <Icon
+                        name="lucide:banknote"
+                        width={16}
+                        height={16}
+                        aria-hidden="true"
+                    />
+                    CUP
+                </li>
+                <li class="faq__payment-method">
+                    <Icon
+                        name="lucide:arrow-right-left"
+                        width={16}
+                        height={16}
+                        aria-hidden="true"
+                    />
+                    Transferencia
+                </li>
+                <li class="faq__payment-method">
+                    <Icon
+                        name="lucide:credit-card"
+                        width={16}
+                        height={16}
+                        aria-hidden="true"
+                    />
+                    Tarjeta Clásica
+                </li>
+                <li class="faq__payment-method">
+                    <Icon
+                        name="lucide:bitcoin"
+                        width={16}
+                        height={16}
+                        aria-hidden="true"
+                    />
+                    Criptomonedas
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
