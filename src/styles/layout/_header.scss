@@ -25,6 +25,9 @@
     }
 
     &__logo {
+        display                : flex;
+        align-items            : center;
+        gap                    : v.$space-2;
         font-size              : v.$font-size-xl;
         font-weight            : v.$font-weight-bold;
         color                  : v.$color-white;
@@ -40,6 +43,14 @@
         text-overflow          : ellipsis;
         white-space            : nowrap;
         flex-shrink            : 1;
+    }
+
+    &__logo-icon {
+        display      : block;
+        flex-shrink  : 0;
+        width        : 30px;
+        height       : 30px;
+        border-radius: v.$border-radius-md;
     }
 
     &__nav {
@@ -86,6 +97,37 @@
         @media (min-width: 845px) {
             display: flex;
             gap    : v.$space-3;
+        }
+    }
+
+    &__cta-link {
+        display         : inline-flex;
+        align-items     : center;
+        justify-content : center;
+        gap             : v.$space-2;
+        font-size       : v.$font-size-sm;
+        font-weight     : v.$font-weight-semibold;
+        color           : v.$color-accent;
+        text-decoration : none;
+        padding         : v.$space-2 v.$space-5;
+        border-radius   : v.$border-radius-full;
+        background-color: rgba(v.$turquoise-surf, 0.1);
+        transition      : background-color v.$transition-fast, color v.$transition-fast;
+
+        svg,
+        [data-icon] {
+            flex-shrink: 0;
+        }
+
+        &:hover {
+            background-color: rgba(v.$turquoise-surf, 0.2);
+            color           : v.$color-white;
+        }
+
+        &--full {
+            width           : 100%;
+            padding         : v.$space-3 v.$space-5;
+            background-color: rgba(v.$turquoise-surf, 0.18);
         }
     }
 

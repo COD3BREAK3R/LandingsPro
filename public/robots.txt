@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://luisenrique.dev/sitemap-index.xml

@@ -14,7 +14,7 @@ interface Props {
 const {
     title,
     description = "Desarrollador Full Stack — Landing pages profesionales en 24-72h desde $50 USD",
-    ogImage = "/images/og-image.png",
+    ogImage = "/img/banner.webp",
     canonical,
 } = Astro.props;
 
@@ -29,18 +29,24 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site);
         <meta name="description" content={description} />
         <meta name="generator" content={Astro.generator} />
 
-        <!-- Preconexión a Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <!-- Preload fuente local -->
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..800;1,14..32,300..800&display=swap"
-            rel="stylesheet"
+            rel="preload"
+            href="/fonts/inter-variable.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
         />
 
         <!-- Open Graph -->
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1252" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/webp" />
+        <meta property="og:url" content={String(canonicalURL)} />
+        <meta property="og:site_name" content="LandingPro" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="es_ES" />
 
@@ -50,31 +56,48 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site);
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImage} />
 
-        <!-- Schema.org Person -->
+        <!-- Schema.org ProfessionalService -->
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
-                "@type": "Person",
-                "name": "Luis Enrique",
+                "@type": ["ProfessionalService", "Person"],
+                "name": "LandingPro – Luis Enrique Ferrer",
+                "alternateName": "Luis Enrique",
                 "jobTitle": "Desarrollador Full Stack",
+                "description": "Desarrollador Full Stack especializado en landing pages profesionales para negocios y emprendedores.",
                 "email": "l.enrique1909@gmail.com",
+                "telephone": "+5355055789",
                 "url": "https://luisenrique.dev",
+                "areaServed": "Worldwide",
+                "priceRange": "$50 - $200 USD",
                 "sameAs": [
                     "https://wa.me/5355055789",
                     "https://t.me/HACKERMATR1X",
                     "https://www.linkedin.com/in/luis-enrique-ferrer-1889851b4"
                 ],
-                "offers": {
-                    "@type": "Offer",
-                    "name": "Landing page profesional",
-                    "price": "50",
-                    "priceCurrency": "USD"
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Servicios de desarrollo web",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "name": "Landing page básica",
+                            "price": "50",
+                            "priceCurrency": "USD"
+                        },
+                        {
+                            "@type": "Offer",
+                            "name": "Landing page avanzada",
+                            "price": "120",
+                            "priceCurrency": "USD"
+                        }
+                    ]
                 }
             }
         </script>
 
         <link rel="canonical" href={canonicalURL} />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
 
         <title>{title}</title>
     </head>
