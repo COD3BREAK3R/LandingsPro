@@ -32,16 +32,16 @@ const faqs = [
             <p>Todo lo que necesitas saber antes de empezar.</p>
         </div>
 
-        <dl class="faq__list">
+        <div class="faq__list">
             {
                 faqs.map((item) => (
                     <details class="faq__item">
                         <summary class="faq__question">{item.question}</summary>
-                        <dd class="faq__answer">{item.answer}</dd>
+                        <p class="faq__answer">{item.answer}</p>
                     </details>
                 ))
             }
-        </dl>
+        </div>
 
         <div class="faq__payment">
             <p class="faq__payment-title">

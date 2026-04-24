@@ -16,11 +16,15 @@ export function initMobileMenu(): void {
     function openMenu(): void {
         if (!mobileMenu) {
             mobileMenu = buildMobileMenu();
+            mobileMenu.hidden = true;
             header!.after(mobileMenu);
         }
-        mobileMenu.hidden = false;
-        toggle!.setAttribute("aria-expanded", "true");
-        toggle!.setAttribute("aria-label", "Cerrar menú");
+        // Batch writes after DOM insertion to avoid forced reflow
+        requestAnimationFrame(() => {
+            mobileMenu!.hidden = false;
+            toggle!.setAttribute("aria-expanded", "true");
+            toggle!.setAttribute("aria-label", "Cerrar menú");
+        });
         document.addEventListener("keydown", handleEscape);
         document.addEventListener("click", handleOutsideClick);
     }

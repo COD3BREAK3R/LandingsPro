@@ -14,15 +14,11 @@
     @include m.flex-center;
 
     &__bg {
-        position                           : absolute;
-        inset                              : -20%;
-        z-index                            : v.$z-below;
-        // Reemplaza esta URL con tu imagen: /images/hero-bg.jpg
-        background-image                   : url('/images/hero-bg.jpg');
-        background-size                    : cover;
-        background-position                : center;
-        pointer-events                     : none;
-        animation                          : hero-drift 20s linear infinite;
+        position      : absolute;
+        inset         : -20%;
+        z-index       : v.$z-below;
+        pointer-events: none;
+        animation     : hero-drift 20s linear infinite;
 
         // Overlay oscuro sobre la imagen
         &::before {
