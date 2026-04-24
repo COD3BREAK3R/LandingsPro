@@ -1,46 +1,52 @@
 ---
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
 
 const steps = [
-  {
-    number: '1',
-    icon: 'lucide:message-square',
-    title: 'Cuéntame tu proyecto',
-    description:
-      'Me escribes por WhatsApp, me cuentas sobre tu negocio y objetivo. Agendamos una llamada de 15-20 min (o lo hacemos por chat).',
-  },
-  {
-    number: '2',
-    icon: 'lucide:layout-template',
-    title: 'Apruebas el plan',
-    description:
-      'Propuesta de diseño basada en ejemplos o, si lo prefieres, dejas volar mi creatividad por ti.',
-  },
-  {
-    number: '3',
-    icon: 'lucide:rocket',
-    title: 'Recibes tu landing lista',
-    description:
-      'Desarrollo, optimizo y te entrego todo configurado. Te doy soporte 7 días para cualquier duda.',
-  },
+    {
+        number: "1",
+        icon: "lucide:message-square",
+        title: "Cuéntame tu proyecto",
+        description:
+            "Me escribes por WhatsApp, me cuentas sobre tu negocio y objetivo. Agendamos una llamada de 15-20 min (o lo hacemos por chat si prefieres).",
+    },
+    {
+        number: "2",
+        icon: "lucide:layout-template",
+        title: "Apruebas el contenido y diseño",
+        description:
+            "Te presento los textos, el mensaje principal y la dirección visual general. Revisas, ajustas lo que quieras y das el visto bueno antes de que empiece el desarrollo.",
+    },
+    {
+        number: "3",
+        icon: "lucide:rocket",
+        title: "Recibes tu landing lista",
+        description:
+            "Desarrollo, optimizo y te entrego todo configurado. Te doy soporte 7 días para cualquier duda.",
+    },
 ];
 ---
 
-<section class='how-it-works section' id='proceso' aria-labelledby='how-title'>
-  <div class='container'>
-    <div class='how-it-works__header'>
-      <h2 id='how-title'>De la idea a tu landing en 3 pasos</h2>
-      <p>Un proceso simple, claro y sin complicaciones.</p>
-    </div>
-
-    <div class='how-it-works__steps'>
-      {steps.map((step) => (
-        <div class='how-it-works__step'>
-          <div class='how-it-works__number' aria-hidden='true'>{step.number}</div>
-          <h3 class='how-it-works__title'>{step.title}</h3>
-          <p class='how-it-works__description'>{step.description}</p>
+<section class="how-it-works section" id="proceso" aria-labelledby="how-title">
+    <div class="container">
+        <div class="how-it-works__header">
+            <h2 id="how-title">De la idea a tu landing en 3 pasos</h2>
+            <p>Un proceso simple, claro y sin complicaciones.</p>
         </div>
-      ))}
+
+        <div class="how-it-works__steps">
+            {
+                steps.map((step) => (
+                    <div class="how-it-works__step">
+                        <div class="how-it-works__number" aria-hidden="true">
+                            {step.number}
+                        </div>
+                        <h3 class="how-it-works__title">{step.title}</h3>
+                        <p class="how-it-works__description">
+                            {step.description}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
     </div>
-  </div>
 </section>

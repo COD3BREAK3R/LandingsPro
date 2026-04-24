@@ -16,6 +16,13 @@
             letter-spacing: -0.02em;
             margin-bottom : v.$space-4;
         }
+
+        p {
+            font-size    : v.$font-size-lg;
+            color        : v.$color-text-muted;
+            max-width    : 55ch;
+            margin-inline: auto;
+        }
     }
 
     &__list {
