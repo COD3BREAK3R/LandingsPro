@@ -56,6 +56,7 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site);
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImage} />
 
+        <!-- Google -->
         <meta
             name="google-site-verification"
             content="LSm0r63P1jhp7GyisUesCNWBPFByUN5otZBy8Vy8hco"
@@ -105,6 +106,20 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site);
         <link rel="icon" type="image/png" href="/favicon.png" />
 
         <title>{title}</title>
+
+        <!-- Google Analytics -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-E759QF1E8N"
+        ></script>
+        <script is:inline>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-E759QF1E8N");
+        </script>
     </head>
     <body>
         <a href="#main-content" class="skip-link visually-hidden"
