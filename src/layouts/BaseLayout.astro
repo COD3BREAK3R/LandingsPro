@@ -2,6 +2,7 @@
 // Layout principal que envuelve todas las páginas
 import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
+import Analytics from "@vercel/analytics/astro";
 import "../styles/main.scss";
 
 interface Props {
@@ -130,9 +131,6 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site);
             <slot />
         </main>
         <Footer />
-        <script>
-            import { inject } from "@vercel/analytics";
-            inject();
-        </script>
+        <Analytics />
     </body>
 </html>
